@@ -148,3 +148,28 @@ json = JSON.stringify(json)
   .join('"id":');
 
 document.write(json);
+
+// jsonString = jsonString.replace("\"_id\":", "\"id\":");
+
+//регулярное выражение с опцией g. Например:
+
+var json = [
+  {
+    _id: "1",
+    email: "user1@gmail.com",
+    image: "some_image_url",
+    name: "Name 1"
+  },
+  {
+    _id: "2",
+    email: "user2@gmail.com",
+    image: "some_image_url",
+    name: "Name 2"
+  }
+];
+
+str = JSON.stringify(json);
+
+str = str.replace(/\"_id\":/g, '"id":');
+
+json = JSON.parse(str);
