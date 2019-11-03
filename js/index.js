@@ -147,7 +147,7 @@ json = JSON.stringify(json)
   .split('"_id":')
   .join('"id":');
 
-document.write(json);
+//document.write(json);
 
 // jsonString = jsonString.replace("\"_id\":", "\"id\":");
 
@@ -172,4 +172,51 @@ str = JSON.stringify(json);
 
 str = str.replace(/\"_id\":/g, '"id":');
 
-json = JSON.parse(str);
+// json = JSON.parse(str);
+console.log(str);
+
+//С помощью функции карты вы можете сделать это. Пожалуйста, обратитесь ниже код.
+
+// var userDetails = [
+//   {
+//     _id: "5078c3a803ff4197dc81fbfb",
+//     email: "user1@gmail.com",
+//     image: "some_image_url",
+//     name: "Name 1"
+//   }
+// ];
+
+// var formattedUserDetails = userDetails.map(
+//   ({ _id: id, email, image, name }) => ({
+//     id,
+//     email,
+//     image,
+//     name
+//   })
+// );
+//console.log(formattedUserDetails);
+
+// let jsonArr = [
+//   {
+//     _id: "5078c3a803ff4197dc81fbfb",
+//     email: "user1@gmail.com",
+//     image: "some_image_url",
+//     name: "Name 1"
+//   },
+//   {
+//     _id: "5078c3a803ff4197dc81fbfc",
+//     email: "user2@gmail.com",
+//     image: "some_image_url",
+//     name: "Name 2"
+//   }
+// ];
+
+// let idModified = jsonArr.map(obj => {
+//   return {
+//     id: obj._id,
+//     email: obj.email,
+//     image: obj.image,
+//     name: obj.name
+//   };
+// });
+// console.log(idModified);
