@@ -153,27 +153,27 @@ json = JSON.stringify(json)
 
 //регулярное выражение с опцией g. Например:
 
-var json = [
-  {
-    _id: "1",
-    email: "user1@gmail.com",
-    image: "some_image_url",
-    name: "Name 1"
-  },
-  {
-    _id: "2",
-    email: "user2@gmail.com",
-    image: "some_image_url",
-    name: "Name 2"
-  }
-];
+// var json = [
+//   {
+//     _id: "1",
+//     email: "user1@gmail.com",
+//     image: "some_image_url",
+//     name: "Name 1"
+//   },
+//   {
+//     _id: "2",
+//     email: "user2@gmail.com",
+//     image: "some_image_url",
+//     name: "Name 2"
+//   }
+// ];
 
-str = JSON.stringify(json);
+// str = JSON.stringify(json);
 
-str = str.replace(/\"_id\":/g, '"id":');
+// str = str.replace(/\"_id\":/g, '"id":');
 
-// json = JSON.parse(str);
-console.log(str);
+// // json = JSON.parse(str);
+// console.log(str);
 
 //С помощью функции карты вы можете сделать это. Пожалуйста, обратитесь ниже код.
 
@@ -258,16 +258,140 @@ console.log(str);
 //   console.log(`${key}: ${value}`);
 // });
 
-const dogs = [
-  { name: "Abby", rating: 12 },
-  { name: "Bandit", rating: 13 },
-  { name: "Choco", rating: 14 },
-  { name: "Daisy", rating: 12 },
-  { name: "Elmo", rating: 12 },
-  { name: "Falco", rating: 13 },
-  { name: "Ghost", rating: 14 }
-];
+// const dogs = [
+//   { name: "Abby", rating: 12 },
+//   { name: "Bandit", rating: 13 },
+//   { name: "Choco", rating: 14 },
+//   { name: "Daisy", rating: 12 },
+//   { name: "Elmo", rating: 12 },
+//   { name: "Falco", rating: 13 },
+//   { name: "Ghost", rating: 14 }
+// ];
 
-dogs.sort((a, b) => b.rating - a.rating);
+// dogs.sort((a, b) => a.rating - b.rating);
 
-console.log(dogs);
+// console.log(dogs);
+
+// var getDaysInMonth = function(month, year) {
+//   // Here January is 1 based
+//   //Day 0 is the last day in the previous month
+//   return new Date(year, month, 0).getDate();
+//   // Here January is 0 based
+//   // return new Date(year, month+1, 0).getDate();
+// };
+// console.log(getDaysInMonth(1, 2012));
+// console.log(getDaysInMonth(2, 2012));
+// console.log(getDaysInMonth(9, 2012));
+// console.log(getDaysInMonth(12, 2012));
+// var curday = function(sp) {
+//   today = new Date();
+//   var dd = today.getDate();
+//   var mm = today.getMonth() + 1; //As January is 0.
+//   var yyyy = today.getFullYear();
+
+//   if (dd < 10) dd = "0" + dd;
+//   if (mm < 10) mm = "0" + mm;
+//   return mm + sp + dd + sp + yyyy;
+// };
+// console.log(curday("/"));
+// console.log(curday("-"));
+
+// var compare_dates = function(date1, date2) {
+//   if (date1 > date2)
+//     return "Date1 > Date2";
+//   else if (date1 < date2)
+//     return "Date2 > Date1";
+//   else
+//     return "Date1 = Date2";
+// };
+
+// console.log(
+//   compare_dates(new Date("11/14/2013 00:00"), new Date("11/14/2013 00:00"))
+// );
+// console.log(
+//   compare_dates(new Date("11/14/2013 00:01"), new Date("11/14/2013 00:00"))
+// );
+// console.log(
+//   compare_dates(new Date("11/14/2013 00:00"), new Date("11/14/2013 00:01"))
+// );
+
+// var month_name = function(dt) {
+//   mlist = [
+//     "January",
+//     "February",
+//     "March",
+//     "April",
+//     "May",
+//     "June",
+//     "July",
+//     "August",
+//     "September",
+//     "October",
+//     "November",
+//     "December"
+//   ];
+//   return mlist[dt.getMonth()];
+// };
+// console.log(month_name(new Date("10/11/2009")));
+// console.log(month_name(new Date("11/13/2014")));
+
+// var is_weekend =  function(date1){
+//   var dt = new Date(date1);
+
+//   if(dt.getDay() == 6 || dt.getDay() == 0)
+//      {
+//       return "weekend";
+//       }
+// }
+
+// console.log(is_weekend('Nov 15, 2014'));
+// console.log(is_weekend('Nov 16, 2014'));
+// console.log(is_weekend('Nov 17, 2014'));
+
+// var date_diff_indays = function(date1, date2) {
+//   dt1 = new Date(date1);
+//   dt2 = new Date(date2);
+//   return Math.floor(
+//     (Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) -
+//       Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
+//       (1000 * 60 * 60 * 24)
+//   );
+// };
+// console.log(date_diff_indays("04/02/2014", "11/04/2014"));
+// console.log(date_diff_indays("12/02/2014", "11/04/2014"));
+
+// var yesterday = function(date1) {
+//   var dt = new Date(date1);
+//   return (dt.getDate() - 1).toString();
+// };
+// console.log(yesterday("Nov 15, 2014"));
+// console.log(yesterday("Nov 16, 2015"));
+// console.log(yesterday("Nov 17, 2016"));
+
+// function max_date(all_dates) {
+//   var max_dt = all_dates[0],
+//     max_dtObj = new Date(all_dates[0]);
+//   all_dates.forEach(function(dt, index) {
+//     if (new Date(dt) > max_dtObj) {
+//       max_dt = dt;
+//       max_dtObj = new Date(dt);
+//     }
+//   });
+//   debugger;
+//   return max_dt;
+// }
+// console.log(max_date(["2015/02/01", "2015/02/02", "2015/01/03"]));
+
+function min_date(all_dates) {
+  var min_dt = all_dates[0],
+    min_dtObj = new Date(all_dates[0]);
+  all_dates.forEach(function(dt, index) {
+    if (new Date(dt) < min_dtObj) {
+      min_dt = dt;
+      min_dtObj = new Date(dt);
+    }
+  });
+  debugger;
+  return min_dt;
+}
+console.log(min_date(["2015/02/01", "2015/02/02", "2015/01/03"]));
