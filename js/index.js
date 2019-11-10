@@ -220,3 +220,54 @@ console.log(str);
 //   };
 // });
 // console.log(idModified);
+
+// var data = {
+//   "commits": [{
+//     "repository": "example-repo-1",
+//     "commit_hash": "example-hash-1"
+//   }, {
+//     "repository": "example-repo-1",
+//     "commit_hash": "example-hash-1.2"
+//   }, {
+//     "repository": "example-repo-2",
+//     "commit_hash": "example-hash-2"
+//   }]
+// };
+
+// var res = data.commits.reduce(function(obj, v) {
+//   // define property if not defined
+//   obj[v.repository] = obj[v.repository] || [];
+//   // push the object
+//   obj[v.repository].push(v);
+//   // return the result object
+//   return obj;
+// }, {})
+
+// console.log(res);
+
+// const employees = {
+//   boss: "Michael",
+//   secretary: "Pam",
+//   sales: "Jim",
+//   accountant: "Oscar"
+// };
+
+// Object.keys(employees).forEach(key => {
+//   let value = employees[key];
+
+//   console.log(`${key}: ${value}`);
+// });
+
+const dogs = [
+  { name: "Abby", rating: 12 },
+  { name: "Bandit", rating: 13 },
+  { name: "Choco", rating: 14 },
+  { name: "Daisy", rating: 12 },
+  { name: "Elmo", rating: 12 },
+  { name: "Falco", rating: 13 },
+  { name: "Ghost", rating: 14 }
+];
+
+dogs.sort((a, b) => b.rating - a.rating);
+
+console.log(dogs);
