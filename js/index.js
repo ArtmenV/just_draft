@@ -416,15 +416,28 @@ json = JSON.stringify(json)
 // console.log(is_array("w3resource"));
 // console.log(is_array([1, 2, 4, 0]));
 
-var first = function(array, n) {
-  if (array == null) return void 0;
-  if (n == null) return array[0];
-  if (n < 0) return [];
-  return array.slice(0, n);
-};
+// var first = function(array, n) {
+//   if (array == null) return void 0;
+//   if (n == null) return array[0];
+//   if (n < 0) return [];
+//   return array.slice(0, n);
+// };
 
-console.log(first([7, 9, 0, -2]));
-console.log(first([], 3));
-console.log(first([7, 9, 0, -2], 3));
-console.log(first([7, 9, 0, -2], 6));
-console.log(first([7, 9, 0, -2], -3));
+// console.log(first([7, 9, 0, -2]));
+// console.log(first([], 3));
+// console.log(first([7, 9, 0, -2], 3));
+// console.log(first([7, 9, 0, -2], 6));
+// console.log(first([7, 9, 0, -2], -3));
+
+const num = window.prompt();
+const str = num.toString();
+const result = [str[0]];
+
+for (let x = 1; x < str.length; x++) {
+  if (str[x - 1] % 2 === 0 && str[x] % 2 === 0) {
+    result.push("-", str[x]);
+  } else {
+    result.push(str[x]);
+  }
+}
+console.log(result.join(""));
