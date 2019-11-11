@@ -429,15 +429,56 @@ json = JSON.stringify(json)
 // console.log(first([7, 9, 0, -2], 6));
 // console.log(first([7, 9, 0, -2], -3));
 
-const num = window.prompt();
-const str = num.toString();
-const result = [str[0]];
+// const num = window.prompt();
+// const str = num.toString();
+// const result = [str[0]];
 
-for (let x = 1; x < str.length; x++) {
-  if (str[x - 1] % 2 === 0 && str[x] % 2 === 0) {
-    result.push("-", str[x]);
-  } else {
-    result.push(str[x]);
-  }
+// for (let x = 1; x < str.length; x++) {
+//   if (str[x - 1] % 2 === 0 && str[x] % 2 === 0) {
+//     result.push("-", str[x]);
+//   } else {
+//     result.push(str[x]);
+//   }
+// }
+// console.log(result.join(""));
+
+// var arr1 = [3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3];
+// var mf = 1;
+// var m = 0;
+// var item;
+// for (var i = 0; i < arr1.length; i++) {
+//   for (var j = i; j < arr1.length; j++) {
+//     if (arr1[i] == arr1[j]) m++;
+//     if (mf < m) {
+//       mf = m;
+//       item = arr1[i];
+//     }
+//   }
+//   m = 0;
+// }
+// console.log(item + " ( " + mf + " times ) ");
+
+// var a = [
+//   [1, 2, 1, 24],
+//   [8, 11, 9, 4],
+//   [7, 0, 7, 27],
+//   [7, 4, 28, 14],
+//   [3, 10, 26, 7]
+// ];
+
+// for (var i in a) {
+//   console.log("row " + i);
+//   for (var j in a[i]) {
+//     console.log(" " + a[i][j]);
+//   }
+// }
+
+var array = [1, 2, 3, 4, 5, 6],
+  s = 0,
+  p = 1,
+  i;
+for (i = 0; i < array.length; i += 1) {
+  s += array[i];
+  p *= array[i];
 }
-console.log(result.join(""));
+console.log("Sum : " + s + " Product :  " + p);
