@@ -473,12 +473,119 @@ json = JSON.stringify(json)
 //   }
 // }
 
-var array = [1, 2, 3, 4, 5, 6],
-  s = 0,
-  p = 1,
-  i;
-for (i = 0; i < array.length; i += 1) {
-  s += array[i];
-  p *= array[i];
+// var array = [1, 2, 3, 4, 5, 6],
+//   s = 0,
+//   p = 1,
+//   i;
+// for (i = 0; i < array.length; i += 1) {
+//   s += array[i];
+//   p *= array[i];
+// }
+// console.log("Sum : " + s + " Product :  " + p);
+
+// function _keys(obj) {
+//   if (!isObject(obj)) return [];
+//   if (Object.keys) return Object.keys(obj);
+//   var keys = [];
+//   for (var key in obj) if (_.has(obj, key)) keys.push(key);
+//   return keys;
+// }
+// function isObject(obj) {
+//   var type = typeof obj;
+//   return type === "function" || (type === "object" && !!obj);
+// }
+// console.log(_keys({ red: "#FF0000", green: "#00FF00", white: "#FFFFFF" }));
+
+// Object.objsize = function(Myobj) {
+//   var osize = 0,
+//     key;
+//   for (key in Myobj) {
+//     if (Myobj.hasOwnProperty(key)) osize++;
+//   }
+//   return osize;
+// };
+
+// var student = {
+//   name: "David Rayy",
+//   sclass: "VI",
+//   rollno: 12
+// };
+
+// var objsize = Object.objsize(student);
+// console.log("Size of the current object : " + objsize);
+
+// function is_creditCard(str) {
+//   regexp = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/;
+
+//   if (regexp.test(str)) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(is_creditCard("378282246310006"));
+
+// console.log(is_creditCard("37828224630006"));
+// {
+//   "members": [
+//     {
+//       "name": "Molecule Man",
+//       "age": 29,
+//       "secretIdentity": "Dan Jukes",
+//     }
+//   ]
+// }
+
+// const data = {
+//   items: [
+//     {
+//       items: [
+//         {
+//           id: 1,
+//           name: "Bill Gates",
+//           age: 43
+//         },
+//         {
+//           id: 2,
+//           name: "Sergey Brin",
+//           age: 33
+//         }
+//       ],
+//       items2: [
+//         {
+//           id: 3,
+//           name: "Larry Page",
+//           age: 34
+//         },
+//         {
+//           id: 4,
+//           name: "dsfsdfs",
+//           age: 34
+//         }
+//       ]
+//     }
+//   ]
+// };
+
+function find_duplicate_in_array(arra1) {
+  var object = {};
+  var result = [];
+
+  arra1.forEach(function(item) {
+    if (!object[item]) object[item] = 0;
+    object[item] += 1;
+    debugger;
+  });
+
+  for (var prop in object) {
+    if (object[prop] >= 2) {
+      result.push(prop);
+      debugger;
+    }
+  }
+
+  return result;
 }
-console.log("Sum : " + s + " Product :  " + p);
+
+console.log(find_duplicate_in_array([1, 2, -2, 4, 5, 4, 7, 8, 7, 7, 71, 3, 6]));
