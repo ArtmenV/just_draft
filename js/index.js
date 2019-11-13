@@ -617,24 +617,31 @@ json = JSON.stringify(json)
 
 // console.log(newArray);
 
-let strangerThings = [
-  {
-    name: "Dustin",
-    age: 13
-  },
-  {
-    name: "Mike",
-    age: 12
-  },
-  {
-    name: "Eleven",
-    age: 11
-  }
-];
+// let strangerThings = [
+//   {
+//     name: "Dustin",
+//     age: 13
+//   },
+//   {
+//     name: "Mike",
+//     age: 12
+//   },
+//   {
+//     name: "Eleven",
+//     age: 11
+//   }
+// ];
 
-let characters = [];
+// let characters = [];
 
-for (let i = 0; i < strangerThings.length; i++) {
-  characters.push(strangerThings[i].name);
-}
-console.log(characters);
+// for (let i = 0; i < strangerThings.length; i++) {
+//   characters.push(strangerThings[i].name);
+// }
+// console.log(characters);
+const date = new Date();
+console.log(new Date(date.valueOf() + 1000 * 60 * 60 * 24));
+
+let d = new Date();
+
+new Date(d.setDate(d.getDate() + 1));
+console.log(d);
