@@ -568,24 +568,73 @@ json = JSON.stringify(json)
 //   ]
 // };
 
-function find_duplicate_in_array(arra1) {
-  var object = {};
-  var result = [];
+// function find_duplicate_in_array(arra1) {
+//   var object = {};
+//   var result = [];
 
-  arra1.forEach(function(item) {
-    if (!object[item]) object[item] = 0;
-    object[item] += 1;
-    debugger;
-  });
+//   arra1.forEach(function(item) {
+//     if (!object[item]) object[item] = 0;
+//     object[item] += 1;
+//     debugger;
+//   });
 
-  for (var prop in object) {
-    if (object[prop] >= 2) {
-      result.push(prop);
-      debugger;
-    }
+//   for (var prop in object) {
+//     if (object[prop] >= 2) {
+//       result.push(prop);
+//       debugger;
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(find_duplicate_in_array([1, 2, -2, 4, 5, 4, 7, 8, 7, 7, 71, 3, 6]));
+
+// let gtu = [
+//   { enrollnumber: 18, name: "Shree" },
+//   { enrollnumber: 21, name: "Krunal" },
+//   { enrollnumber: 22, name: "Rushikesh" }
+// ];
+
+// let mappedArrayObj = gtu.map(obj => {
+//   let newObj = {};
+//   newObj[obj.enrollnumber] = obj.name;
+//   return newObj;
+// });
+
+// console.log(mappedArrayObj);
+// // let no = [1, 3, 4, 5];
+
+// // no.map((item, i) => console.log(i))
+
+// let no = [1, 3, 4, 5];
+
+// const square = x => {
+//   return x * x;
+// };
+
+// let newArray = no.map((item, i) => square(item));
+
+// console.log(newArray);
+
+let strangerThings = [
+  {
+    name: "Dustin",
+    age: 13
+  },
+  {
+    name: "Mike",
+    age: 12
+  },
+  {
+    name: "Eleven",
+    age: 11
   }
+];
 
-  return result;
+let characters = [];
+
+for (let i = 0; i < strangerThings.length; i++) {
+  characters.push(strangerThings[i].name);
 }
-
-console.log(find_duplicate_in_array([1, 2, -2, 4, 5, 4, 7, 8, 7, 7, 71, 3, 6]));
+console.log(characters);
