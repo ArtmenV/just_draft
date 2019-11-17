@@ -803,26 +803,115 @@
 
 // console.log(fruits);
 
-const data = [
-  {
-    name: "Derek",
-    id: 1
-  },
-  {
-    name: "Lates",
-    id: 2
-  }
-];
-const datas = [
-  {
-    name: "Simson",
-    id: 11
-  },
-  {
-    name: "Shilov",
-    id: 12
-  }
-];
+// const data = [
+//   {
+//     name: "Derek",
+//     id: 1
+//   },
+//   {
+//     name: "Lates",
+//     id: 2
+//   }
+// ];
+// const datas = [
+//   {
+//     name: "Simson",
+//     id: 11
+//   },
+//   {
+//     name: "Shilov",
+//     id: 12
+//   }
+// ];
 
-let derek = data.concat(datas);
-console.log(derek);
+// let derek = data.concat(datas);
+// console.log(derek);
+
+// const data = [
+//   {
+//     name: "Derek",
+//     id: 1,
+//     items: [
+//       {
+//         start: "gour",
+//         id: 100
+//       },
+//       {
+//         start: "buor",
+//         id: 200
+//       }
+//     ]
+//   }
+// ];
+// const datas = [
+//   {
+//     name: "Simson",
+//     id: 11,
+//     items: [
+//       {
+//         start: "ttsa",
+//         id: 600
+//       },
+//       {
+//         start: "buasdasor",
+//         id: 5
+//       }
+//     ]
+//   }
+// ];
+
+// const getArray1 = data.items;
+// const getArray2 = datas.items;
+
+// // let derek = getArray1.concat(getArray2);
+// console.log(getArray1);
+
+// const result = [...data, ...datas].reduce((acc, cur) => {
+//   acc = [...acc, ...cur.items];
+//   return acc;
+// }, []);
+
+// const filter = result.sort((a, b) => a.id - b.id);
+
+// console.log(filter);
+
+const data = {
+  name: "Derek",
+  id: 1,
+  items: [
+    {
+      start: "gour",
+      id: 100
+    },
+    {
+      start: "buor",
+      id: 200
+    }
+  ]
+};
+
+const datas = {
+  name: "Simson",
+  id: 11,
+  items: [
+    {
+      start: "ttsa",
+      id: 600
+    },
+    {
+      start: "buasdasor",
+      id: 5
+    }
+  ]
+};
+
+const result = [...data.items, ...datas.items].sort((a, b) => a.id - b.id);
+
+const res = result.find(find => find.id !== 100);
+
+console.log(res);
+
+// const res = resul;
+// const filter = result.sort((a, b) => a.id - b.id);
+
+console.log(result);
