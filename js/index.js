@@ -793,12 +793,36 @@
 // const price = prices.reduce((did, last) => did + last);
 // console.log("price", price);
 
-var fruits = ["Яблоко", "Банан"];
+// var fruits = ["Яблоко", "Банан"];
 
-var newLength = fruits.push("Апельсин");
+// var newLength = fruits.push("Апельсин");
 
-const find = fruits.indexOf("Банан");
+// const find = fruits.indexOf("Банан");
 
-const deleteItem = fruits.splice(find, 1);
+// const deleteItem = fruits.slice(2);
 
-console.log(fruits);
+// console.log(fruits);
+
+const data = [
+  {
+    name: "Derek",
+    id: 1
+  },
+  {
+    name: "Lates",
+    id: 2
+  }
+];
+const datas = [
+  {
+    name: "Simson",
+    id: 11
+  },
+  {
+    name: "Shilov",
+    id: 12
+  }
+];
+
+let derek = data.concat(datas);
+console.log(derek);
