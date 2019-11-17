@@ -638,10 +638,111 @@ json = JSON.stringify(json)
 //   characters.push(strangerThings[i].name);
 // }
 // console.log(characters);
-const date = new Date();
-console.log(new Date(date.valueOf() + 1000 * 60 * 60 * 24));
+// const date = new Date();
+// console.log(new Date(date.valueOf() + 1000 * 60 * 60 * 24));
 
-let d = new Date();
+// let d = new Date();
 
-new Date(d.setDate(d.getDate() + 1));
-console.log(d);
+// new Date(d.setDate(d.getDate() + 1));
+// console.log(d);
+
+// const myArray = [1, 2, 3];
+// // using the third argument to map
+// myArray.map((value, index, array) => {
+//   return array[index] + 1;
+// });
+// // using the variable that holds the original array
+// let data = myArray.map((value, index) => {
+//   return myArray[index] * 2;
+// });
+// // just using map without accessing the array manually
+// myArray.map(value => {
+//   return value + 1;
+// });
+
+// console.log(data);
+
+// const myArray = [1, 2, 3, 4];
+// myArray.map(number => {
+//   console.log(number);
+// });
+// // nothing changes except the method we used
+// myArray.forEach(number => {
+//   console.log(number);
+// });
+
+// const originalArray = [1, 2, 3, 4];
+// const newArray = [];
+// originalArray.forEach((number, i) => {
+//   newArray[i] = number * 2;
+// });
+// console.log(newArray); // [2, 4, 6, 8]
+
+// const originalArray = [1, 2, undefined, 3];
+// const newArray = originalArray
+//   .filter(value => {
+//     return Number.isInteger(value);
+//   })
+//   .map(value => {
+//     return value * 2;
+//   });
+// console.log(newArray); // [2, 4, 6]
+
+// const myUsers = [
+//   { name: "chuloo", likes: "grilled chicken" },
+//   { name: "chris", likes: "cold beer" },
+//   { name: "sam", likes: "fish biscuits" }
+// ];
+// // const usersByFood = myUsers.map(item => {
+// //     const container = {};
+// //     container[item.name] = item.likes;
+// //     container.age = item.name.length * 10;
+// //     return container;
+// // })
+// // console.log(usersByFood);
+// // [{chuloo: "grilled chicken", age: 60}, {chris: "cold beer", age: 50}, {sam: "fish biscuits", age: 30}]
+// const user = myUsers.map(items => {
+//   const container = {};
+//   (container[items.name] = items.likes),
+//     (container.age = items.name.length * 10);
+//   return container;
+// });\
+
+// const girls = [
+//   { name: "Sarah", age: 19 },
+//   { name: "Laura", age: 10 },
+//   { name: "Jessy", age: 29 },
+//   { name: "Amy", age: 23 }
+// ];
+
+// const data = girls.map(girl => girl.age);
+
+// console.log(data);
+
+// const numbers = [4, 9, 36, 49];
+
+// let oddSquareRoots = numbers.map(num => {
+//   if (num % 2 != 0) {
+//     return Math.sqrt(num);
+//   }
+//   return num;
+// });
+
+// console.log(oddSquareRoots);
+
+// const numbers = [4, 9, 36, 49];
+
+// let oddSquareRoots = numbers.map(num => {
+//   return num % 2 !== 0 ? Math.sqrt(num) : num;
+// });
+
+// console.log(oddSquareRoots);
+
+const originalArray = [1, 2, 3, 4];
+const newArray = [];
+
+originalArray.forEach((number, i) => {
+  newArray[i] = number * 2;
+});
+
+console.log(newArray);
