@@ -128,24 +128,24 @@
 //   "name":"Name 2"
 // }
 
-var json = [
-  {
-    _id: "5078c3a803ff4197dc81fbfb",
-    email: "user1@gmail.com",
-    image: "some_image_url",
-    name: "Name 1"
-  },
-  {
-    _id: "5078c3a803ff4197dc81fbfc",
-    email: "user2@gmail.com",
-    image: "some_image_url",
-    name: "Name 2"
-  }
-];
+// var json = [
+//   {
+//     _id: "5078c3a803ff4197dc81fbfb",
+//     email: "user1@gmail.com",
+//     image: "some_image_url",
+//     name: "Name 1"
+//   },
+//   {
+//     _id: "5078c3a803ff4197dc81fbfc",
+//     email: "user2@gmail.com",
+//     image: "some_image_url",
+//     name: "Name 2"
+//   }
+// ];
 
-json = JSON.stringify(json)
-  .split('"_id":')
-  .join('"id":');
+// json = JSON.stringify(json)
+//   .split('"_id":')
+//   .join('"id":');
 
 //document.write(json);
 
@@ -738,11 +738,39 @@ json = JSON.stringify(json)
 
 // console.log(oddSquareRoots);
 
-const originalArray = [1, 2, 3, 4];
-const newArray = [];
+// const originalArray = [1, 2, 3, 4];
+// const newArray = [];
 
-originalArray.forEach((number, i) => {
-  newArray[i] = number * 2;
-});
+// originalArray.forEach((number, i) => {
+//   newArray[i] = number * 2;
+// });
 
-console.log(newArray);
+// console.log(newArray);
+
+// const favoriteFood = ["Pizza", "Files", "Sedish-meatballs"];
+
+// console.log(...favoriteFood);
+
+// const data = [
+//   { name: "stark", time: "dinner" },
+//   { name: "boolish", time: "brekfast" }
+// ];
+
+// console.log(data);
+
+// let oldCar = {
+//   make: "Toyota",
+//   model: "Tercel",
+//   year: "1996"
+// };
+
+// for (let key in oldCar) {
+//   let obj = {};
+//   console.log(`${obj.key} --> ${oldCar[key]}`);
+// }
+
+let str = "Turn the page";
+
+for (let index in str) {
+  console.log(`Index of ${str[index]}: ${index}`);
+}
