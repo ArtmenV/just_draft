@@ -875,43 +875,85 @@
 
 // console.log(filter);
 
-const data = {
-  name: "Derek",
-  id: 1,
-  items: [
-    {
-      start: "gour",
-      id: 100
-    },
-    {
-      start: "buor",
-      id: 200
-    }
-  ]
-};
+// const data = {
+//   name: "Derek",
+//   id: 1,
+//   items: [
+//     {
+//       start: "gour",
+//       id: 100
+//     },
+//     {
+//       start: "buor",
+//       id: 200
+//     }
+//   ]
+// };
 
-const datas = {
-  name: "Simson",
-  id: 11,
-  items: [
-    {
-      start: "ttsa",
-      id: 600
-    },
-    {
-      start: "buasdasor",
-      id: 5
-    }
-  ]
-};
+// const datas = {
+//   name: "Simson",
+//   id: 11,
+//   items: [
+//     {
+//       start: "ttsa",
+//       id: 600
+//     },
+//     {
+//       start: "buasdasor",
+//       id: 5
+//     }
+//   ]
+// };
 
-const result = [...data.items, ...datas.items].sort((a, b) => a.id - b.id);
+// const result = [...data.items, ...datas.items].sort((a, b) => a.id - b.id);
 
-const res = result.find(find => find.id !== 100);
+// console.log(result);
 
-console.log(res);
+// const res = result.find(find => find.id !== 100);
+
+// console.log(res);
 
 // const res = resul;
 // const filter = result.sort((a, b) => a.id - b.id);
 
-console.log(result);
+// let users = [
+//   {
+//     id: 1,
+//     name: "Denis",
+//     age: 28
+//   },
+//   {
+//     id: 2,
+//     name: "Olga",
+//     age: 25
+//   },
+//   {
+//     id: 3,
+//     name: "Ivan",
+//     age: 18
+//   }
+// ];
+
+// const filter = users.sort((a, b) => a.id - b.id);
+// const sort = users.sort((prev, next) => (prev.name < next.name ? -1 : 1));
+
+// console.log(sort);
+
+const arrayOfObj = [
+  { key1: "value1", key2: "value2" },
+  { key1: "value1", key2: "value2" }
+];
+const newArrayOfObj = arrayOfObj.map(({ key1: stroke, ...rest }) => ({
+  stroke,
+  ...rest
+}));
+
+console.log(newArrayOfObj);
+
+// obj = {a:1, b:2, c:3}
+
+// {a, ...obj2} = obj
+
+// a // 5
+
+// obj2 // {b:2, c:3}
