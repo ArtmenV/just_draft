@@ -765,12 +765,40 @@
 // };
 
 // for (let key in oldCar) {
-//   let obj = {};
-//   console.log(`${obj.key} --> ${oldCar[key]}`);
+//   console.log(`${key} --> ${oldCar[key]}`);
 // }
 
-let str = "Turn the page";
+// let str = "Turn the page";
 
-for (let index in str) {
-  console.log(`Index of ${str[index]}: ${index}`);
-}
+// for (let index in str) {
+//   console.log(`Index of ${str[index]}: ${index}`);
+// }
+
+// main() {
+//   var list = [1,2,3];
+//   print( list.length ); // 3
+// }
+// const tooldart = ["Hammer", "Screwdriver", "Ruler"];
+
+// for (item of tooldart) console.log(item);
+
+// const age = [16, 14, 18];
+
+// let pers = age.some(person => person == 18);
+
+// console.log("pers", pers);
+
+// const prices = [25, 30, 15, 155, 40, 10];
+
+// const price = prices.reduce((did, last) => did + last);
+// console.log("price", price);
+
+var fruits = ["Яблоко", "Банан"];
+
+var newLength = fruits.push("Апельсин");
+
+const find = fruits.indexOf("Банан");
+
+const deleteItem = fruits.splice(find, 1);
+
+console.log(fruits);
