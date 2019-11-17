@@ -939,16 +939,16 @@
 
 // console.log(sort);
 
-const arrayOfObj = [
-  { key1: "value1", key2: "value2" },
-  { key1: "value1", key2: "value2" }
-];
-const newArrayOfObj = arrayOfObj.map(({ key1: stroke, ...rest }) => ({
-  stroke,
-  ...rest
-}));
+// const arrayOfObj = [
+//   { key1: "value1", key2: "value2" },
+//   { key1: "value1", key2: "value2" }
+// ];
+// const newArrayOfObj = arrayOfObj.map(({ key1: stroke, ...rest }) => ({
+//   stroke,
+//   ...rest
+// }));
 
-console.log(newArrayOfObj);
+// console.log(newArrayOfObj);
 
 // obj = {a:1, b:2, c:3}
 
@@ -957,3 +957,46 @@ console.log(newArrayOfObj);
 // a // 5
 
 // obj2 // {b:2, c:3}
+
+// let users = [
+//   {
+//     id: 1,
+//     name: "Denis",
+//     age: 28
+//   },
+//   {
+//     id: 2,
+//     name: "Olga",
+//     age: 25
+//   },
+//   {
+//     id: 3,
+//     name: "Ivan",
+//     age: 18
+//   }
+// ];
+
+// const quart = users.reduce((total, price, index, array) => {
+//   total += price.age;
+//   if (index === array.length - 1) {
+//     return total / array.length;
+//   } else {
+//     return total;
+//   }
+// }, 0);
+
+// console.log(quart);
+
+var friends = [
+  { name: "Anna", books: ["Bible", "Harry Potter"], age: 21 },
+  { name: "Bob", books: ["War and peace", "Romeo and Juliet"], age: 26 },
+  { name: "Alice", books: ["The Lord of the Rings", "The Shining"], age: 18 }
+];
+
+// allbooks - список, который будет содержать все книги друзей +
+// дополнительный список указанный в initialValue
+var allbooks = friends.reduce((prev, curr) => {
+  return [...prev, ...curr.books];
+}, []);
+
+console.log(allbooks);
