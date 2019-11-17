@@ -1015,27 +1015,39 @@
 
 // console.log(average);
 
-const fruitBasket = [
-  "banana",
-  "cherry",
-  "orange",
-  "apple",
-  "cherry",
-  "orange",
-  "apple",
-  "banana",
-  "cherry",
-  "orange",
-  "fig"
+// const fruitBasket = [
+//   "banana",
+//   "cherry",
+//   "orange",
+//   "apple",
+//   "cherry",
+//   "orange",
+//   "apple",
+//   "banana",
+//   "cherry",
+//   "orange",
+//   "fig"
+// ];
+
+// const count = fruitBasket.reduce((tally, fruit) => {
+//   if (!tally[fruit]) {
+//     tally[fruit] = 1;
+//   } else {
+//     tally[fruit] = tally[fruit] + 1;
+//   }
+//   return tally;
+// }, {});
+
+// console.log(count);
+
+const data = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
 ];
 
-const count = fruitBasket.reduce((tally, fruit) => {
-  if (!tally[fruit]) {
-    tally[fruit] = 1;
-  } else {
-    tally[fruit] = tally[fruit] + 1;
-  }
-  return tally;
-}, {});
+const flat = data.reduce((total, amount) => {
+  return total.concat(amount);
+}, []);
 
-console.log(count);
+console.log(flat); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
