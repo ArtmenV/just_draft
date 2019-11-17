@@ -987,16 +987,55 @@
 
 // console.log(quart);
 
-var friends = [
-  { name: "Anna", books: ["Bible", "Harry Potter"], age: 21 },
-  { name: "Bob", books: ["War and peace", "Romeo and Juliet"], age: 26 },
-  { name: "Alice", books: ["The Lord of the Rings", "The Shining"], age: 18 }
+// var friends = [
+//   { name: "Anna", books: ["Bible", "Harry Potter"], age: 21 },
+//   { name: "Bob", books: ["War and peace", "Romeo and Juliet"], age: 26 },
+//   { name: "Alice", books: ["The Lord of the Rings", "The Shining"], age: 18 }
+// ];
+
+// // allbooks - список, который будет содержать все книги друзей +
+// // дополнительный список указанный в initialValue
+// var allbooks = friends.reduce((prev, curr) => {
+//   return [...prev, ...curr.books];
+// }, []);
+
+// console.log(allbooks);
+
+// var friends = [
+//   { name: "Anna", books: ["Bible", "Harry Potter"], age: 21 },
+//   { name: "Bob", books: ["War and peace", "Romeo and Juliet"], age: 26 },
+//   { name: "Alice", books: ["The Lord of the Rings", "The Shining"], age: 18 }
+// ];
+
+// const average = friends.reduce((total, amount, index, array) => {
+//   return (total += amount.age) / 3;
+// }, 0);
+
+// console.log(friends.length);
+
+// console.log(average);
+
+const fruitBasket = [
+  "banana",
+  "cherry",
+  "orange",
+  "apple",
+  "cherry",
+  "orange",
+  "apple",
+  "banana",
+  "cherry",
+  "orange",
+  "fig"
 ];
 
-// allbooks - список, который будет содержать все книги друзей +
-// дополнительный список указанный в initialValue
-var allbooks = friends.reduce((prev, curr) => {
-  return [...prev, ...curr.books];
-}, []);
+const count = fruitBasket.reduce((tally, fruit) => {
+  if (!tally[fruit]) {
+    tally[fruit] = 1;
+  } else {
+    tally[fruit] = tally[fruit] + 1;
+  }
+  return tally;
+}, {});
 
-console.log(allbooks);
+console.log(count);
