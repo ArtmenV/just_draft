@@ -1040,14 +1040,96 @@
 
 // console.log(count);
 
+// const data = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ];
+
+// const flat = data.reduce((total, amount) => {
+//   return total.concat(amount);
+// }, []);
+
+// console.log(flat); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+
+// const data = [
+//   { a: "happy", b: "robin", c: ["blue", "green"] },
+//   { a: "tired", b: "panther", c: ["green", "black", "orange", "blue"] },
+//   { a: "sad", b: "goldfish", c: ["green", "red"] }
+// ];
+
+// const uniqueColors = data.reduce((total, amount) => {
+//   amount.c.forEach(color => {
+//     if (total.indexOf(color) === -1) {
+//       total.push(color);
+//     }
+//   });
+//   return total;
+// }, []);
+
+// console.log(uniqueColors);
+
+// var jediMasters = ["Leia", "Anakin", "Luke", "Obi Wan Kenobi"];
+// var jediMastersSayHi = jediMasters.map(function(jediName, jediIndex) {
+//   if (jediName === "Obi Wan Kenobi") {
+//     return (
+//       "And last but not less important, I'm #" +
+//       (jediIndex + 1) +
+//       " " +
+//       jediName
+//     );
+//   } else {
+//     return "My name is " + jediName + ", I'm #" + (jediIndex + 1);
+//   }
+// });
+// console.log(jediMastersSayHi);
+
+// users = [
+//   {
+//     name: "Bruce Wayne",
+//     location: "Gotham City",
+//     heroName: "Batman"
+//   },
+//   {
+//     name: "Barry Allen",
+//     location: "Central City",
+//     heroName: "The Flash"
+//   },
+//   {
+//     name: "Clark Kent",
+//     location: "Kryptonopolis",
+//     heroName: "Superman"
+//   }
+// ];
+
+// userInfo = users.map(u => ({
+//   name: u.name,
+//   heroName: u.heroName
+// }));
+
+// console.log(userInfo);
+
 const data = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+  {
+    name: Other,
+    id: 1
+  },
+  {
+    name: "ca/CaLg",
+    id: 2
+  },
+  {
+    name: "ag/Ag",
+    id: 3
+  },
+  {
+    name: "Cu/CuSO4",
+    id: 4
+  }
 ];
 
-const flat = data.reduce((total, amount) => {
-  return total.concat(amount);
-}, []);
+datas = data.reduce((total, prod, index, array) => {
+  const data = item.name.splite("/");
 
-console.log(flat); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+  console.log("data", data);
+}, []);
