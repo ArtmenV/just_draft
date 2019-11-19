@@ -1111,8 +1111,24 @@
 
 const data = [
   {
-    name: Other,
-    id: 1
+    name: "Other",
+    id: 1,
+    items: [
+      {
+        name: "Start",
+        id: 1,
+        card: [
+          {
+            id: 1,
+            prod: "Zava"
+          }
+        ]
+      },
+      {
+        name: "Pupsi",
+        id: 2
+      }
+    ]
   },
   {
     name: "ca/CaLg",
@@ -1123,13 +1139,46 @@ const data = [
     id: 3
   },
   {
-    name: "Cu/CuSO4",
+    name: "cu/cuso4",
     id: 4
   }
 ];
 
-datas = data.reduce((total, prod, index, array) => {
-  const data = item.name.splite("/");
+const dats = data.map(el => {
+  return el.name
+    .split("/")
+    .map(titlePart => titlePart.replace("other")
+});
 
-  console.log("data", data);
-}, []);
+
+titlePart[0].toLowerCase() + titlePart.slice(1));
+// const replace = dats.filter(name => {
+//  const  data = name === "AG"
+//  return data.replace("G", "j"))
+console.log("dats", dats);
+// }
+// const replaced = dats.filter(date => date.replace("Other", "j"));
+// console.log("repreplacedace", replaced);
+
+// datas = data.reduce((total, prod, index, array) => {
+//   const data = prod.name.split("/");
+
+//   const arr = data.charAt(1).toLowerCase();
+
+//   console.log("data", arr);
+
+//   if (data.name === "cuso4") {
+//     console.log("data", data.name);
+//     data.name = "CuSO4";
+//   }
+
+//   total = data;
+//   console.log("total", total);
+//   total.push({
+//     id: prod.id,
+//     name: prod.name
+//   });
+//   total.sort((a, b) => b.id - a.id);
+
+//   return total;
+// }, []);
