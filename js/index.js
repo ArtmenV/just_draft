@@ -1109,53 +1109,53 @@
 
 // console.log(userInfo);
 
-const data = [
-  {
-    name: "Other",
-    id: 1,
-    items: [
-      {
-        name: "Start",
-        id: 1,
-        card: [
-          {
-            id: 1,
-            prod: "Zava"
-          }
-        ]
-      },
-      {
-        name: "Pupsi",
-        id: 2
-      }
-    ]
-  },
-  {
-    name: "ca/CaLg",
-    id: 2
-  },
-  {
-    name: "ag/Ag",
-    id: 3
-  },
-  {
-    name: "cu/cuso4",
-    id: 4
-  }
-];
+// const data = [
+//   {
+//     name: "Other",
+//     id: 1,
+//     items: [
+//       {
+//         name: "Start",
+//         id: 1,
+//         card: [
+//           {
+//             id: 1,
+//             prod: "Zava"
+//           }
+//         ]
+//       },
+//       {
+//         name: "Pupsi",
+//         id: 2
+//       }
+//     ]
+//   },
+//   {
+//     name: "ca/CaLg",
+//     id: 2
+//   },
+//   {
+//     name: "ag/Ag",
+//     id: 3
+//   },
+//   {
+//     name: "cu/cuso4",
+//     id: 4
+//   }
+// ];
 
-const dats = data.map(el => {
-  return el.name
-    .split("/")
-    .map(titlePart => titlePart.replace("other")
-});
+// const dats = data.map(el => {
+//   return el.name
+//     .split("/")
+//     .map(titlePart => titlePart.replace("other")
+// });
 
 
-titlePart[0].toLowerCase() + titlePart.slice(1));
-// const replace = dats.filter(name => {
-//  const  data = name === "AG"
-//  return data.replace("G", "j"))
-console.log("dats", dats);
+// titlePart[0].toLowerCase() + titlePart.slice(1));
+// // const replace = dats.filter(name => {
+// //  const  data = name === "AG"
+// //  return data.replace("G", "j"))
+// console.log("dats", dats);
 // }
 // const replaced = dats.filter(date => date.replace("Other", "j"));
 // console.log("repreplacedace", replaced);
