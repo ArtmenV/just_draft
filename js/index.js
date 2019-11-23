@@ -1150,7 +1150,6 @@
 //     .map(titlePart => titlePart.replace("other")
 // });
 
-
 // titlePart[0].toLowerCase() + titlePart.slice(1));
 // // const replace = dats.filter(name => {
 // //  const  data = name === "AG"
@@ -1182,3 +1181,78 @@
 
 //   return total;
 // }, []);
+
+// const data = [
+//   {
+//     name: "Other",
+//     id: 1,
+//     items: [
+//       {
+//         name: "Start",
+//         id: 1,
+//         card: [
+//           {
+//             id: 1,
+//             prod: "Zava"
+//           }
+//         ]
+//       },
+//       {
+//         name: "Pupsi",
+//         id: 2
+//       }
+//     ]
+//   },
+//   {
+//     name: "ca/CaLg",
+//     id: 2
+//   },
+//   {
+//     name: "ag/Ag",
+//     id: 3
+//   },
+//   {
+//     name: "cu/cuso4",
+//     id: 4
+//   }
+// ];
+
+// const red = data.map((price, index) => ({
+
+//   console.log()
+
+// }))
+
+// console.log("val", data);
+
+var tasks = [
+  {
+    name: "Write for Envato Tuts+",
+
+    duration: 120
+  },
+
+  {
+    name: "Work out",
+
+    duration: 60
+  },
+
+  {
+    name: "Procrastinate on Duolingo",
+
+    duration: 240
+  }
+];
+
+var task_names = [];
+
+tasks.forEach(function(task) {
+  task_names.push({
+    names: task.name,
+    cleare: task.duration
+  });
+});
+
+console.log(Object.values(tasks).map(name => name.name));
+console.log(task_names);
