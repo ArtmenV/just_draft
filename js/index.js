@@ -1257,17 +1257,95 @@
 // console.log(Object.keys(tasks[0]));
 // console.log(task_names);
 
-var total = [1, 2, 3, 4, 5].reduce(function(previous, current, index) {
-  var val = previous + current;
-  console.log(
-    "The previous value is " +
-      previous +
-      "; the current value is " +
-      current +
-      ", and the current iteration is " +
-      (index + 1)
-  );
-  return val;
+// var total = [1, 2, 3, 4, 5].reduce(function(previous, current, index) {
+//   var val = previous + current;
+//   console.log(
+//     "The previous value is " +
+//       previous +
+//       "; the current value is " +
+//       current +
+//       ", and the current iteration is " +
+//       (index + 1)
+//   );
+//   return val;
+// }, 0);
+
+// console.log("The loop is done, and the final value is " + total + ".");
+
+// var monday = [
+//   {
+//     name: "Write a tutorial",
+//     duration: 180
+//   },
+//   {
+//     name: "Some web development",
+//     duration: 120
+//   }
+// ];
+
+// var tuesday = [
+//   {
+//     name: "Keep writing that tutorial",
+//     duration: 240
+//   },
+//   {
+//     name: "Some more web development",
+//     duration: 180
+//   },
+//   {
+//     name: "A whole lot of nothing",
+//     duration: 240
+//   }
+// ];
+
+// var tasks = [monday, tuesday];
+
+// var result = tasks
+//   .reduce(function(accumulator, current) {
+//     return accumulator.concat(current);
+//   })
+//   .map(function(task) {
+//     return task.duration / 60;
+//   })
+//   .filter(function(duration) {
+//     return duration >= 2;
+//   })
+//   .map(function(duration) {
+//     return duration * 25;
+//   })
+//   .reduce(function(accumulator, current) {
+//     return [+accumulator + +current];
+//   })
+//   .map(function(dollar_amount) {
+//     return "$" + dollar_amount.toFixed(2);
+//   })
+//   .reduce(function(formatted_dollar_amount) {
+//     return formatted_dollar_amount;
+//   });
+
+// console.log(result);
+
+let data = [
+  {
+    country: "China",
+    pop: 1409517397
+  },
+  {
+    country: "India",
+    pop: 1339180127
+  },
+  {
+    country: "USA",
+    pop: 324459463
+  },
+  {
+    country: "Indonesia",
+    pop: 263991379
+  }
+];
+
+let sum = data.reduce((acc, val) => {
+  return val.country == "China" ? acc : acc + val.pop;
 }, 0);
 
-console.log("The loop is done, and the final value is " + total + ".");
+console.log(sum);
