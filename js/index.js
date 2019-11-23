@@ -1225,34 +1225,49 @@
 
 // console.log("val", data);
 
-var tasks = [
-  {
-    name: "Write for Envato Tuts+",
+// var tasks = [
+//   {
+//     name: "Write for Envato Tuts+",
 
-    duration: 120
-  },
+//     duration: 120
+//   },
 
-  {
-    name: "Work out",
+//   {
+//     name: "Work out",
 
-    duration: 60
-  },
+//     duration: 60
+//   },
 
-  {
-    name: "Procrastinate on Duolingo",
+//   {
+//     name: "Procrastinate on Duolingo",
 
-    duration: 240
-  }
-];
+//     duration: 240
+//   }
+// ];
 
-var task_names = [];
+// var task_names = [];
 
-tasks.forEach(function(task) {
-  task_names.push({
-    names: task.name,
-    cleare: task.duration
-  });
-});
+// tasks.forEach(function(task) {
+//   task_names.push({
+//     names: task.name,
+//     cleare: task.duration
+//   });
+// });
 
-console.log(Object.values(tasks).map(name => name.name));
-console.log(task_names);
+// console.log(Object.keys(tasks[0]));
+// console.log(task_names);
+
+var total = [1, 2, 3, 4, 5].reduce(function(previous, current, index) {
+  var val = previous + current;
+  console.log(
+    "The previous value is " +
+      previous +
+      "; the current value is " +
+      current +
+      ", and the current iteration is " +
+      (index + 1)
+  );
+  return val;
+}, 0);
+
+console.log("The loop is done, and the final value is " + total + ".");
