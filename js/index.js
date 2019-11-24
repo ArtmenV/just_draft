@@ -1325,27 +1325,67 @@
 
 // console.log(result);
 
-let data = [
-  {
-    country: "China",
-    pop: 1409517397
-  },
-  {
-    country: "India",
-    pop: 1339180127
-  },
-  {
-    country: "USA",
-    pop: 324459463
-  },
-  {
-    country: "Indonesia",
-    pop: 263991379
-  }
+// let data = [
+//   {
+//     country: "China",
+//     pop: 1409517397
+//   },
+//   {
+//     country: "India",
+//     pop: 1339180127
+//   },
+//   {
+//     country: "USA",
+//     pop: 324459463
+//   },
+//   {
+//     country: "Indonesia",
+//     pop: 263991379
+//   }
+// ];
+
+// let sum = data.reduce((acc, val) => {
+//   return val.country == "China" ? acc : acc + val.pop;
+// }, 0);
+
+// console.log(sum);
+
+// const fruitBasket = [
+//   "banana",
+//   "cherry",
+//   "orange",
+//   "apple",
+//   "cherry",
+//   "orange",
+//   "apple",
+//   "banana",
+//   "cherry",
+//   "orange",
+//   "fig"
+// ];
+
+// const count = fruitBasket.reduce((tally, fruit) => {
+//   if (!tally[fruit]) {
+//     tally[fruit] = 1;
+//   } else {
+//     tally[fruit] = tally[fruit] + 1;
+//   }
+//   return Object.values(tally);
+// }, {});
+
+// console.log(count);
+
+const data = [
+  { a: "happy", b: "robin", c: ["blue", "green"] },
+  { a: "tired", b: "panther", c: ["green", "black", "orange", "blue"] },
+  { a: "sad", b: "goldfish", c: ["green", "red"] }
 ];
 
-let sum = data.reduce((acc, val) => {
-  return val.country == "China" ? acc : acc + val.pop;
-}, 0);
+const colors = data.reduce((total, amount) => {
+  amount.c.forEach(color => {
+    total.push(color);
+  });
+  return total;
+}, []);
 
-console.log(sum);
+console.log(colors);
