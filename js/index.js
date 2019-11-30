@@ -1400,8 +1400,40 @@
 
 // console.log(res);
 
-var square = [1, 2, 3, 4, 5].map(function(value) {
-  return Math.pow(value, 2);
-});
+// var square = [1, 2, 3, 4, 5].map(function(value) {
+//   return Math.pow(value, 2);
+// });
 
-console.log(square);
+// console.log(square);
+// let user = {
+//   name: "John"
+// };
+
+// let id = Symbol("id");
+
+// user[id] = 1;
+
+// console.log(user);
+
+// var a = 42;
+
+// var b = (a > 41) ? "hello" : "world";
+
+// console.log(b)
+
+// var a = [];
+
+// a[0] = 1;
+// a[1] = 2;
+// a[2] = 3;
+
+// let b = a.reduce(item, price, index => item + price[index]);
+// console.log(b);
+
+function foo() {
+  var arr = Array.prototype.slice.call(arguments);
+  arr.push("bam");
+  console.log(arr);
+}
+
+foo("bar", "baz");
