@@ -1430,10 +1430,21 @@
 // let b = a.reduce(item, price, index => item + price[index]);
 // console.log(b);
 
-function foo() {
-  var arr = Array.prototype.slice.call(arguments);
-  arr.push("bam");
-  console.log(arr);
-}
+// function foo() {
+//   var arr = Array.prototype.slice.call(arguments);
+//   arr.push("bam");
+//   console.log(arr);
+// }
 
-foo("bar", "baz");
+// foo("bar", "baz");
+
+c
+
+const dad = {
+  id: 1,
+  name: John
+};
+
+const data = Array.from(dad);
+
+console.log(data);
