@@ -1449,37 +1449,53 @@
 
 // console.log(data);
 
-let handlers = Symbol("handlers");
+// let handlers = Symbol("handlers");
 
-function makeObservable(target) {
-  // 1. Создадим хранилище обработчиков
-  target[handlers] = [];
+// function makeObservable(target) {
+//   // 1. Создадим хранилище обработчиков
+//   target[handlers] = [];
 
-  // положим туда функции-обработчики для вызовов в будущем
-  target.observe = function(handler) {
-    this[handlers].push(handler);
-  };
+//   // положим туда функции-обработчики для вызовов в будущем
+//   target.observe = function(handler) {
+//     this[handlers].push(handler);
+//   };
 
-  // 2. Создадим прокси для реакции на изменения
-  return new Proxy(target, {
-    set(target, property, value, receiver) {
-      let success = Reflect.set(...arguments); // перенаправим операцию к оригинальному объекту
-      if (success) {
-        // если не произошло ошибки при записи свойства
-        // вызовем обработчики
-        target[handlers].forEach(handler => handler(property, value));
-      }
-      return success;
+//   // 2. Создадим прокси для реакции на изменения
+//   return new Proxy(target, {
+//     set(target, property, value, receiver) {
+//       let success = Reflect.set(...arguments); // перенаправим операцию к оригинальному объекту
+//       if (success) {
+//         // если не произошло ошибки при записи свойства
+//         // вызовем обработчики
+//         target[handlers].forEach(handler => handler(property, value));
+//       }
+//       return success;
+//     }
+//   });
+// }
+
+// let user = {};
+
+// user = makeObservable(user);
+
+// user.observe((key, value) => {
+//   alert(`SET ${key}=${value}`);
+// });
+
+// user.name = "John";
+
+let array = [1, 2, 3];
+
+array = new Proxy(array, {
+  get(target, prop, receiver) {
+    if (prop < 0) {
+      // даже если обращение к элементу идёт как arr[1]
+      // prop является строкой, нужно преобразовать её к числу
+      prop = +prop + target.length;
     }
-  });
-}
-
-let user = {};
-
-user = makeObservable(user);
-
-user.observe((key, value) => {
-  alert(`SET ${key}=${value}`);
+    return Reflect.get(target, prop, receiver);
+  }
 });
 
-user.name = "John";
+alert(array[-1]); // 3
+alert(array[-2]); // 2
