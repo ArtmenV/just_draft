@@ -1484,18 +1484,292 @@
 
 // user.name = "John";
 
-let array = [1, 2, 3];
+// let array = [1, 2, 3];
 
-array = new Proxy(array, {
-  get(target, prop, receiver) {
-    if (prop < 0) {
-      // даже если обращение к элементу идёт как arr[1]
-      // prop является строкой, нужно преобразовать её к числу
-      prop = +prop + target.length;
+// array = new Proxy(array, {
+//   get(target, prop, receiver) {
+//     if (prop < 0) {
+//       // даже если обращение к элементу идёт как arr[1]
+//       // prop является строкой, нужно преобразовать её к числу
+//       prop = +prop + target.length;
+//     }
+//     return Reflect.get(target, prop, receiver);
+//   }
+// });
+
+// alert(array[-1]); // 3
+// alert(array[-2]); // 2
+
+
+<section id="app">
+  <div id="main" class="box">
+    <h1 class="title">Create new question</h1> 
+    
+    <hr />
+    
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="e.g. Advanced Mathematics I" v-model="name">
+      </div>
+    </div>
+    
+    <div class="field">
+      <label class="label">Topic</label>
+      <div class="control">
+        <div class="select">
+          <select v-model="topic">
+            <option v-for="topic in topicList">{{ topic }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+    <div class="field">
+      <label class="label">Question body</label>
+      <div class="control">
+        <quill-editor v-model="questionBody"
+                      ref="myQuillEditor" 
+                      :options="editorOption"
+                      @blur="onEditorBlur($event)"
+                      @focus="onEditorFocus($event)"
+                      @ready="onEditorReady($event)">
+          </quill-editor>
+      </div>
+    </div>
+    
+    <div class="field">
+      <label class="label">Answers</label>
+      <div class="field has-addons" v-for="(answer, index) in answers">
+        <div class="control">
+          <a class="button is-static is-fixed-width">{{ String.fromCharCode(65 + index) }}</a>
+        </div>
+        
+        <div class="control is-expanded">
+          <input class="input" type="text" placeholder="Enter answer" v-model="answers[index]">
+        </div>
+        
+        <div class="control">
+          <a class="button is-danger" v-on:click="removeAnswer(index)"><strong>-</strong></a>
+        </div>
+      </div>
+      
+      <div class="field">
+        <div class="control">
+          <a class="button is-info is-fixed-width" v-on:click="addAnswer"><strong>+</strong></a>
+        </div>
+      </div>
+      
+    </div> 
+    
+    <hr />
+    
+    <div class="field is-grouped">
+      <div class="control">
+        <a class="button is-primary">Create</a>
+      </div>
+      <div class="control">
+        <a class="button is-light">Cancel</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+var defaultOptions  = {
+  theme: 'snow',
+  boundary: document.body, 
+  modules: {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],
+      ['blockquote', 'code-block'],
+      [{ 'header': 1 }, { 'header': 2 }],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      [{ 'script': 'sub' }, { 'script': 'super' }],
+      [{ 'indent': '-1' }, { 'indent': '+1' }],
+      [{ 'direction': 'rtl' }],
+      [{ 'size': ['small', false, 'large', 'huge'] }],
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      [{ 'color': [] }, { 'background': [] }],
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+      ['clean'],
+      ['link', 'image', 'video']
+    ]
+  },
+  placeholder: 'Insert text here ...',
+  readOnly: false
+}
+if (typeof Object.assign != 'function') {
+  Object.defineProperty(Object, 'assign', {
+    value(target, varArgs) {
+      if (target == null) {
+        throw new TypeError('Cannot convert undefined or null to object')
+      }
+      const to = Object(target)
+      for (let index = 1; index < arguments.length; index++) {
+        const nextSource = arguments[index]
+        if (nextSource != null) {
+          for (const nextKey in nextSource) {
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey]
+            }
+          }
+        }
+      }
+      return to
+    },
+    writable: true,
+    configurable: true
+  })
+}
+Vue.component('quill-editor', {
+  template: `<div class="quill-editor">
+<slot name="toolbar"></slot>
+<div ref="editor"></div>
+</div>`,
+  data() {
+    return {
+      _options: {},
+      _content: '',
+      defaultOptions
     }
-    return Reflect.get(target, prop, receiver);
+  },
+  props: {
+    content: String,
+    value: String,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({})
+    },
+    globalOptions: {
+      type: Object,
+      required: false,
+      default: () => ({})
+    }
+  },
+  mounted() {
+    this.initialize()
+  },
+  beforeDestroy() {
+    this.quill = null
+    delete this.quill
+  },
+  methods: {
+    // Init Quill instance
+    initialize() {
+      if (this.$el) {
+        // Options
+        this._options = Object.assign({}, this.defaultOptions, this.globalOptions, this.options)
+        // Instance
+        this.quill = new Quill(this.$refs.editor, this._options)
+
+        this.quill.enable(false)
+        // Set editor content
+        if (this.value || this.content) {
+          this.quill.pasteHTML(this.value || this.content)
+        }
+        // Disabled editor
+        if (!this.disabled) {
+          this.quill.enable(true)
+        }
+        // Mark model as touched if editor lost focus
+        this.quill.on('selection-change', range => {
+          if (!range) {
+            this.$emit('blur', this.quill)
+          } else {
+            this.$emit('focus', this.quill)
+          }
+        })
+        // Update model if text changes
+        this.quill.on('text-change', (delta, oldDelta, source) => {
+          let html = this.$refs.editor.children[0].innerHTML
+          const quill = this.quill
+          const text = this.quill.getText()
+          if (html === '<p><br></p>') html = ''
+          this._content = html
+          this.$emit('input', this._content)
+          this.$emit('change', { html, text, quill })
+        })
+        // Emit ready event
+        this.$emit('ready', this.quill)
+      }
+    }
+  },
+  watch: {
+    // Watch content change
+    content(newVal, oldVal) {
+      if (this.quill) {
+        if (newVal && newVal !== this._content) {
+          this._content = newVal
+          this.quill.pasteHTML(newVal)
+        } else if(!newVal) {
+          this.quill.setText('')
+        }
+      }
+    },
+    // Watch content change
+    value(newVal, oldVal) {
+      if (this.quill) {
+        if (newVal && newVal !== this._content) {
+          this._content = newVal
+          this.quill.pasteHTML(newVal)
+        } else if(!newVal) {
+          this.quill.setText('')
+        }
+      }
+    },
+    // Watch disabled change
+    disabled(newVal, oldVal) {
+      if (this.quill) {
+        this.quill.enable(!newVal)
+      }
+    }
+  }
+})
+var app = new Vue({
+  el: '#app',
+  data: {
+    editorOption: {
+      // some quill options
+    },
+    name: '',
+    topic: '',
+    topicList: [
+      'Mathematics',
+      'Physics',
+      'Chemistry'
+    ],
+    questionBody: '',
+    answers: [
+      ''
+    ]
+  },
+  methods: {
+    onEditorBlur(quill) {
+      console.log('editor blur!', quill)
+    },
+    onEditorFocus(quill) {
+      console.log('editor focus!', quill)
+    },
+    onEditorReady(quill) {
+      console.log('editor ready!', quill)
+    },
+    onEditorChange({ quill, html, text }) {
+      console.log('editor change!', quill, html, text)
+      this.content = html
+    },
+    addAnswer: function(event) {
+      // Add new empty answer
+      this.answers.push('')
+    },
+    removeAnswer: function(index) {
+      // Remove answer at index
+      this.answers.splice(index, 1)
+    }
   }
 });
-
-alert(array[-1]); // 3
-alert(array[-2]); // 2
