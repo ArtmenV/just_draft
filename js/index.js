@@ -1784,28 +1784,49 @@
 
 // alert(user.ref.name);
 
-let list = {
-  value: 1,
-  next: {
-    value: 2,
-    next: {
-      value: 3,
-      next: {
-        value: 4,
-        next: null
-      }
-    }
-  }
-};
+// let list = {
+//   value: 1,
+//   next: {
+//     value: 2,
+//     next: {
+//       value: 3,
+//       next: {
+//         value: 4,
+//         next: null
+//       }
+//     }
+//   }
+// };
 
-function printList(list) {
-  let tmp = list;
+// function printList(list) {
+//   let tmp = list;
 
-  while (tmp) {
-    alert(tmp.value);
-    tmp = tmp.next;
-  }
+//   while (tmp) {
+//     alert(tmp.value);
+//     tmp = tmp.next;
+//   }
 
+// }
+
+// printList(list);
+
+function askPassword(ok, fail) {
+  let password = prompt("Password?", '');
+  if (password == "rockstar") ok();
+  else fail();
 }
 
-printList(list);
+let user = {
+  name: 'Вася',
+
+  loginOk() {
+    alert(`${this.name} logged in`);
+  },
+
+  loginFail() {
+    alert(`${this.name} failed to log in`);
+  },
+
+};
+
+askPassword(user.loginOk, user.loginFail);
